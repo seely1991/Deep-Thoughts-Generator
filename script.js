@@ -1,3 +1,4 @@
+//array with quotes
 const quotes = [ 'If you ever catch on fire, try to avoid seeing yourself in the mirror, because I bet that\'s what REALLY throws you into a panic.',
 	'Maybe in order to understand mankind we have to look at that word itself. MANKIND. Basically, it\'s made up of two separate words mank and ind. What do these words mean? It\'s a mystery and that\'s why so is mankind.',
 	'I think the mistake a lot of us make is thinking the state-appointed shrink is our friend',
@@ -141,6 +142,7 @@ const quotes = [ 'If you ever catch on fire, try to avoid seeing yourself in the
 	"One thing kids like is to be tricked. For instance, I was going to take my nephew to Disneyland, but instead I drove him to an old burned-out warehouse. \"Oh no,\" I said, \"Disneyland burned down.\" He cried and cried, but I think that deep down he thought it was a pretty good joke. I started to drive over to the real Disneyland, but it was getting pretty late."
 	]
 
+//array of backgrounds
 const backgrounds = [
 	{
 		image: 'https://i.giphy.com/media/rAJfdmusNFDDG/giphy.webp',
@@ -192,9 +194,11 @@ const backgrounds = [
 	}
 ]
 
+//global variable for switching backgrounds with a crossfade
 let currentBackground = 1;
 
 function getNewQuote() {
+	//retrieves a random quote from the list
 	const x = Math.floor(Math.random()* quotes.length);
 	$("#quote").fadeToggle(1000, function () {
 		$("#text").html(quotes[x]);
@@ -204,6 +208,7 @@ function getNewQuote() {
 }
 
 function getNewBackground() {
+	//randomly chooses a new background and crossfades to the new one
 	img = backgrounds[Math.floor(Math.random()*backgrounds.length)];
 	console.log(img);
 			if (currentBackground == 1) {
@@ -218,14 +223,19 @@ function getNewBackground() {
 }
 
 function scroll() {
+	//scroll the text down a pixel
 	window.scrollBy(0,1);
 }
 
+//changes background every 15 seconds
 const backgroundFade = setInterval(getNewBackground, 15000);
+
+//auto scroll the text
 const autoScroll = setInterval(scroll, 10)
 getNewBackground()
 
 $("document").ready(function() {
+	//loads a quote when the page loads and fades it in
 	setTimeout(function() {
 		$(window).scrollTop(0);
 		const x = Math.floor(Math.random()* quotes.length);
@@ -235,6 +245,7 @@ $("document").ready(function() {
 	});
 
 function tweet() {
+	//function to set up a tweet with current quote
 	const tweetText = $("#text").text().replace(/\s/g,'%20');
 	const url = 'https://twitter.com/intent/tweet?text=' + tweetText + "%0A%09-Jack Handey";
 	window.open(url, '_blank')
