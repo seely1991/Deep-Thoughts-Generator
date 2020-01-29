@@ -1,6 +1,6 @@
 //imports from quotes and backgrounds
 import { quotes } from './quotes.js';
-import { backgrounds } from './backgrounds.js';
+import { backgrounds } from './background.js';
 
 //global variable for switching backgrounds with a crossfade
 let currentBackground = 1;
