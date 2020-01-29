@@ -68,7 +68,7 @@ function getNewQuote() {
 
 function getNewBackground() {
 	//randomly chooses a new background and crossfades to the new one
-	img = backgrounds[Math.floor(Math.random()*backgrounds.length)];
+	let img = backgrounds[Math.floor(Math.random()*backgrounds.length)];
 	console.log(img);
 			if (currentBackground == 1) {
 				$("#background2").attr('src', img.image);
